@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: druina <druina@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/25 15:41:39 by druina            #+#    #+#             */
-/*   Updated: 2022/10/28 12:01:47 by druina           ###   ########.fr       */
+/*   Created: 2022/10/28 16:00:33 by druina            #+#    #+#             */
+/*   Updated: 2022/10/28 16:24:15 by druina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*a;
-	int		i;
+	char	*sub;
+	size_t	i;
 
 	i = 0;
-	a = (char *)s;
-	while (i < (int)n)
+	sub = (char *)malloc(sizeof(char) * len);
+	while (i < len)
 	{
-		a[i] = 0;
+		sub[i] = s[start];
 		i++;
+		start++;
 	}
+	sub[i] = '\0';
+	if (!sub || !s || len == 0)
+		return (NULL);
+	return (sub);
 }

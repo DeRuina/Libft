@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: druina <druina@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/25 15:41:39 by druina            #+#    #+#             */
-/*   Updated: 2022/10/28 12:01:47 by druina           ###   ########.fr       */
+/*   Created: 2022/10/25 13:51:09 by druina            #+#    #+#             */
+/*   Updated: 2022/10/27 17:02:11 by druina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+void	*ft_memset(void *b, int c, size_t n)
 {
-	char	*a;
 	int		i;
+	char	*a;
 
+	a = (char *)b;
 	i = 0;
-	a = (char *)s;
-	while (i < (int)n)
+	while (i < (int)n && a[i])
 	{
-		a[i] = 0;
+		a[i] = (unsigned char)c;
 		i++;
 	}
+	return (b);
 }

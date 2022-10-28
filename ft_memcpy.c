@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: druina <druina@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/25 15:41:39 by druina            #+#    #+#             */
-/*   Updated: 2022/10/28 12:01:47 by druina           ###   ########.fr       */
+/*   Created: 2022/10/26 08:02:15 by druina            #+#    #+#             */
+/*   Updated: 2022/10/26 16:41:53 by druina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	char	*a;
 	int		i;
+	char	*a;
+	char	*b;
 
 	i = 0;
-	a = (char *)s;
+	a = (char *)dest;
+	b = (char *)src;
 	while (i < (int)n)
 	{
-		a[i] = 0;
+		a[i] = b[i];
 		i++;
 	}
+	return (a);
 }

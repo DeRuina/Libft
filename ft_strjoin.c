@@ -1,27 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: druina <druina@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/25 15:41:39 by druina            #+#    #+#             */
-/*   Updated: 2022/10/28 12:01:47 by druina           ###   ########.fr       */
+/*   Created: 2022/10/28 16:24:50 by druina            #+#    #+#             */
+/*   Updated: 2022/10/28 16:50:44 by druina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*a;
+	char	*join;
 	int		i;
+	int		j;
 
 	i = 0;
-	a = (char *)s;
-	while (i < (int)n)
+	j = 0;
+	join = (char *)malloc(sizeof(char) * ((ft_strlen((char *)s1))
+				+ (ft_strlen((char *)s2)) + 1));
+	if (!join)
+		return (NULL);
+	while (i < ft_strlen((char *)s1))
 	{
-		a[i] = 0;
+		join[i] = s1[i];
 		i++;
 	}
+	while (j < ft_strlen((char *)s2))
+	{
+		join[i] = s2[j];
+		i++;
+		j++;
+	}
+	join[i] = '\0';
+	return (join);
 }
