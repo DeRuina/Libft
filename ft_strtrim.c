@@ -6,24 +6,38 @@
 /*   By: druina <druina@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 16:55:32 by druina            #+#    #+#             */
-/*   Updated: 2022/10/28 17:24:28 by druina           ###   ########.fr       */
+/*   Updated: 2022/10/31 11:46:41 by druina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-char *ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	char *trim;
-	int i;
-	int j;
+	char	*temp;
+	int		i;
+	int		ci;
+	int		cj;
 
 	i = 0;
-	j = 0;
-	while (ft_strchr(s1,set[i]))
+	ci = 0;
+	cj = 0;
+	if (!s1 || s1[0] == '\0')
+		return (NULL);
+	while (ft_strchr(set, s1[i]))
+	{
+		if (ft_strchr(set, s1[i]) != NULL)
+			ci++;
 		i++;
-	while (ft_strrchr(s1,set[j]))
-		j++;
-
-	trim = (char *)malloc(sizeof(char) * (ft_strlen((char*)s1) - (i + j))+1);
+	}
+	i = ft_strlen((char *)s1);
+	while (ft_strrchr(set, s1[i]))
+	{
+		if (ft_strrchr(set, s1[i]) != NULL)
+			cj++;
+		i--;
+	}
+	temp = ft_substr(s1, ci, (ft_strlen((char *)s1) - (ci + cj)));
+	return (temp);
 }
