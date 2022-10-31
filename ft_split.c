@@ -6,7 +6,7 @@
 /*   By: druina <druina@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 10:00:49 by druina            #+#    #+#             */
-/*   Updated: 2022/10/31 16:36:27 by druina           ###   ########.fr       */
+/*   Updated: 2022/10/31 16:53:00 by druina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,8 @@ char	**ft_split(char const *s, char c)
 		split[1] = "\0";
 		return (split);
 	}
-	//s = ft_strtrim(s, makestring(c));
+	if (s[i] == c || s[ft_strlen((char*)s)-1] == c)
+		s = ft_strtrim(s, makestring(c));
 	while (s[i] != '\0')
 	{
 		if (s[i] == c && s[i + 1] != c)
@@ -78,10 +79,10 @@ int main(void)
 	char **split;
 
 	i = 0;
-	char str[] = "Dean";
-	char c = 'e';
+	char str[] = "eeeeeeeDeannnne";
+	char c = 'r';
 	split = ft_split(str, c);
-	while (i < 3)
+	while (i < 2)
 	{
 		printf("%s\n", split[i]);
 		i++;
