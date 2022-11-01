@@ -6,12 +6,56 @@
 /*   By: druina <druina@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 10:00:49 by druina            #+#    #+#             */
-/*   Updated: 2022/10/31 16:53:00 by druina           ###   ########.fr       */
+/*   Updated: 2022/11/01 15:01:01 by druina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
+
+int	count(const char *s, char c)
+{
+	int	i;
+	int	count;
+
+	i = 0;
+	count = 0;
+	while (s[i] != '\0')
+	{
+		if (s[i] == c && s[i + 1] != c)
+			count++;
+		i++;
+	}
+	return (count);
+}
+
+char	**makememory(const char *s, char c)
+{
+	char	**split;
+	int		i;
+	int		j;
+	int		k;
+
+	i = 0;
+	j = 0;
+	k = 0;
+	split = (char **)malloc(sizeof(char *) * (count(s, c) + 2));
+	while (s[i++] != '\0')
+	{
+		if (j == 0 && s[i] == c)
+			split[j++] = ft_substr(s, 0, i);
+		if (s[i] == c && s[i + 1] != c)
+		{
+			k = i + 1;
+			while (s[k] != c && s[k] != '\0')
+				k++;
+			split[j++] = ft_substr(s, i + 1, k - i - 1);
+		}
+		k = 0;
+	}
+	split[j] = "\0";
+	return (split);
+}
 
 char	*makestring(char c)
 {
@@ -23,20 +67,11 @@ char	*makestring(char c)
 	return (str);
 }
 
-
 char	**ft_split(char const *s, char c)
 {
 	char	**split;
-	int		i;
-	int		j;
-	int		k;
-	int		count;
 
-	i = 0;
-	j = 0;
-	k = 0;
-	count = 0;
-	if (!s || s[0] == '\0')
+	if (!s || s[0] == '\0' || c == 0 || c == '\0')
 		return (NULL);
 	if (ft_strchr(s, c) == NULL)
 	{
@@ -45,47 +80,8 @@ char	**ft_split(char const *s, char c)
 		split[1] = "\0";
 		return (split);
 	}
-	if (s[i] == c || s[ft_strlen((char*)s)-1] == c)
+	if (s[0] == c || s[ft_strlen((char *)s) - 1] == c)
 		s = ft_strtrim(s, makestring(c));
-	while (s[i] != '\0')
-	{
-		if (s[i] == c && s[i + 1] != c)
-			count++;
-		i++;
-	}
-	i = 0;
-	split = (char **)malloc(sizeof(char *) * (count + 2));
-	while (s[i] != '\0')
-	{
-		if (j == 0 && s[i] == c)
-			split[j++] = ft_substr(s, 0, i);
-		if (s[i] == c && s[i + 1] != c)
-		{
-			k = i + 1;
-			while (s[k] != c && s[k] != '\0')
-				k++;
-			split[j] = ft_substr(s, i + 1, k - i - 1);
-			j++;
-		}
-		i++;
-		k = 0;
-	}
-	split[j] = "\0";
+	split = makememory(s, c);
 	return (split);
-}
-int main(void)
-{
-	int i;
-	char **split;
-
-	i = 0;
-	char str[] = "eeeeeeeDeannnne";
-	char c = 'r';
-	split = ft_split(str, c);
-	while (i < 2)
-	{
-		printf("%s\n", split[i]);
-		i++;
-	}
-	return(0);
 }

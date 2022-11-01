@@ -1,42 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: druina <druina@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/28 16:55:32 by druina            #+#    #+#             */
-/*   Updated: 2022/11/01 08:51:42 by druina           ###   ########.fr       */
+/*   Created: 2022/11/01 12:22:01 by druina            #+#    #+#             */
+/*   Updated: 2022/11/01 16:29:00 by druina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s1, char const *set)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char	*temp;
 	int		i;
-	int		ci;
-	int		cj;
+	char	*new;
 
-	i = 0;
-	ci = 0;
-	cj = 0;
-	if (!s1 || s1[0] == '\0')
+	new = (char *)malloc(sizeof(char) * (ft_strlen((char*)s) + 1));
+	if (!new || !s || !f)
 		return (NULL);
-	while (ft_strchr(set, s1[i]))
+	i = 0;
+	while (s[i] != '\0')
 	{
-		if (ft_strchr(set, s1[i]) != NULL)
-			ci++;
+		new[i] = f(i, s[i]);
 		i++;
 	}
-	i = ft_strlen((char *)s1 + 1);
-	while (ft_strrchr(set, s1[i]))
-	{
-		if (ft_strrchr(set, s1[i]) != NULL)
-			cj++;
-		i--;
-	}
-	temp = ft_substr(s1, ci, (ft_strlen((char *)s1) - (ci + cj)));
-	return (temp);
+	new[i] = '\0';
+	return (new);
 }

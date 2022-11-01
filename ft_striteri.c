@@ -1,42 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: druina <druina@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/28 16:55:32 by druina            #+#    #+#             */
-/*   Updated: 2022/11/01 08:51:42 by druina           ###   ########.fr       */
+/*   Created: 2022/11/01 15:01:33 by druina            #+#    #+#             */
+/*   Updated: 2022/11/01 16:28:23 by druina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s1, char const *set)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	char	*temp;
-	int		i;
-	int		ci;
-	int		cj;
+	int	i;
 
 	i = 0;
-	ci = 0;
-	cj = 0;
-	if (!s1 || s1[0] == '\0')
-		return (NULL);
-	while (ft_strchr(set, s1[i]))
+	while (s[i] != '\0')
 	{
-		if (ft_strchr(set, s1[i]) != NULL)
-			ci++;
+		f(i, &s[i]);
 		i++;
 	}
-	i = ft_strlen((char *)s1 + 1);
-	while (ft_strrchr(set, s1[i]))
-	{
-		if (ft_strrchr(set, s1[i]) != NULL)
-			cj++;
-		i--;
-	}
-	temp = ft_substr(s1, ci, (ft_strlen((char *)s1) - (ci + cj)));
-	return (temp);
 }
