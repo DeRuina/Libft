@@ -6,7 +6,7 @@
 /*   By: druina <druina@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 09:26:21 by druina            #+#    #+#             */
-/*   Updated: 2022/10/27 10:11:19 by druina           ###   ########.fr       */
+/*   Updated: 2022/11/02 09:50:58 by druina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	str2 = (unsigned char *)s2;
 	if (str == str2)
 		return (0);
-	while (i <= (int)n)
+	while (i < (int)n)
 	{
 		if (str[i] != str2[i])
 			return (str[i] - str2[i]);

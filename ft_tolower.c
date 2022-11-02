@@ -6,13 +6,13 @@
 /*   By: druina <druina@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 14:54:44 by druina            #+#    #+#             */
-/*   Updated: 2022/10/25 14:55:10 by druina           ###   ########.fr       */
+/*   Updated: 2022/11/02 08:09:16 by druina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_lower(int c)
+int	ft_tolower(int c)
 {
 	if ('A' <= c && c <= 'Z')
 		return ((c + 32));

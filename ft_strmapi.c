@@ -6,7 +6,7 @@
 /*   By: druina <druina@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 12:22:01 by druina            #+#    #+#             */
-/*   Updated: 2022/11/01 16:29:00 by druina           ###   ########.fr       */
+/*   Updated: 2022/11/02 08:56:50 by druina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	int		i;
 	char	*new;
 
-	new = (char *)malloc(sizeof(char) * (ft_strlen((char*)s) + 1));
+	new = (char *)malloc(sizeof(char) * (ft_strlen((char *)s) + 1));
 	if (!new || !s || !f)
 		return (NULL);
 	i = 0;

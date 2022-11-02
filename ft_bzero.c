@@ -6,7 +6,7 @@
 /*   By: druina <druina@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 15:41:39 by druina            #+#    #+#             */
-/*   Updated: 2022/10/28 12:01:47 by druina           ###   ########.fr       */
+/*   Updated: 2022/11/02 08:34:42 by druina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,5 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	char	*a;
-	int		i;
-
-	i = 0;
-	a = (char *)s;
-	while (i < (int)n)
-	{
-		a[i] = 0;
-		i++;
-	}
+	ft_memset(s, 0, n);
 }

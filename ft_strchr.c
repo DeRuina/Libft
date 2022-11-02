@@ -6,7 +6,7 @@
 /*   By: druina <druina@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 08:48:56 by druina            #+#    #+#             */
-/*   Updated: 2022/10/26 16:54:04 by druina           ###   ########.fr       */
+/*   Updated: 2022/11/02 10:12:15 by druina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,13 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	int			i;
-	const char	*ptr;
-
-	ptr = NULL;
-	i = 0;
+	while (*s != '\0')
+	{
+		if (*s == (char)c)
+			return ((char *)s);
+		s++;
+	}
 	if ((char)c == '\0')
-	{
-		ptr = &s[ft_strlen((char *)s) + 1];
-		return ((char *)ptr);
-	}
-	else
-	{
-		while (s[i] != '\0')
-		{
-			if (s[i] == (char)c)
-			{
-				ptr = &s[i];
-				return ((char *)ptr);
-			}
-			i++;
-		}
-	}
-	return ((char *)ptr);
+		return ((char *)s);
+	return (NULL);
 }

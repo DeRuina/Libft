@@ -6,7 +6,7 @@
 /*   By: druina <druina@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 10:33:05 by druina            #+#    #+#             */
-/*   Updated: 2022/10/26 16:53:24 by druina           ###   ########.fr       */
+/*   Updated: 2022/11/02 08:55:48 by druina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	j = (int)n - 1;
 	a = (char *)dest;
 	b = (char *)src;
+	if (!dest && !src)
+		return (NULL);
 	if (a > b)
 	{
 		while (j >= 0)
@@ -31,13 +33,6 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 		}
 	}
 	else
-	{
-		j = 0;
-		while (j < (int)n)
-		{
-			a[j] = b[j];
-			j++;
-		}
-	}
+		ft_memcpy(dest, src, n);
 	return (a);
 }

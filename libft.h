@@ -6,7 +6,7 @@
 /*   By: druina <druina@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 11:02:57 by druina            #+#    #+#             */
-/*   Updated: 2022/11/01 15:48:36 by druina           ###   ########.fr       */
+/*   Updated: 2022/11/02 08:09:17 by druina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		ft_isprint(int c);
 int		ft_strlen(char *src);
 void	*ft_memset(void *b, int c, size_t n);
 int		ft_toupper(int c);
-int		ft_lower(int c);
+int		ft_tolower(int c);
 void	ft_bzero(void *s, size_t n);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 char	*ft_strchr(const char *s, int c);

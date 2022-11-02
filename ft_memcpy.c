@@ -6,7 +6,7 @@
 /*   By: druina <druina@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 08:02:15 by druina            #+#    #+#             */
-/*   Updated: 2022/10/26 16:41:53 by druina           ###   ########.fr       */
+/*   Updated: 2022/11/02 08:38:41 by druina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	i = 0;
 	a = (char *)dest;
 	b = (char *)src;
+	if (!dest && !src)
+		return (NULL);
 	while (i < (int)n)
 	{
 		a[i] = b[i];
