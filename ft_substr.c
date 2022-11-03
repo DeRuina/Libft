@@ -6,7 +6,7 @@
 /*   By: druina <druina@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 16:00:33 by druina            #+#    #+#             */
-/*   Updated: 2022/10/31 11:46:26 by druina           ###   ########.fr       */
+/*   Updated: 2022/11/03 15:03:51 by druina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,11 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	i;
 
 	i = 0;
+	if ((int)start >= ft_strlen((char*)s))
+		return(NULL);
 	sub = (char *)malloc(sizeof(char) * len + 1);
+	if(!sub)
+		return(NULL);
 	while (i < len)
 	{
 		sub[i] = s[start];

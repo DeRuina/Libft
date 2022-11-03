@@ -6,7 +6,7 @@
 /*   By: druina <druina@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 11:16:04 by druina            #+#    #+#             */
-/*   Updated: 2022/10/28 11:33:05 by druina           ###   ########.fr       */
+/*   Updated: 2022/11/03 14:46:05 by druina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_atoi(const char *str)
 {
-	int	nb;
+	unsigned long	nb;
 	int	sign;
 	int	i;
 
@@ -34,6 +34,10 @@ int	ft_atoi(const char *str)
 	{
 		nb = nb * 10 + (str[i] - '0');
 		i++;
+		if(nb > 9223372036854775807 && sign == -1)
+			return(0);
+		else if(nb > 9223372036854775807 && sign == 1)
+			return(-1);
 	}
 	return (sign * nb);
 }

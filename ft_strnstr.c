@@ -6,7 +6,7 @@
 /*   By: druina <druina@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 10:17:47 by druina            #+#    #+#             */
-/*   Updated: 2022/10/27 12:54:49 by druina           ###   ########.fr       */
+/*   Updated: 2022/11/03 14:33:03 by druina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,11 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t n)
 
 	i = 0;
 	j = 0;
-	if (needle == NULL || needle[0] == '\0')
+	if (needle[0] == '\0')
 		return ((char *)haystack);
+	if ((needle > haystack && haystack != NULL) || n == 0)
+		return(NULL);
+
 	while (haystack[i] != haystack[(int)n])
 	{
 		if (haystack[i] != needle[j])
