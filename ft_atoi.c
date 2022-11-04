@@ -6,23 +6,31 @@
 /*   By: druina <druina@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 11:16:04 by druina            #+#    #+#             */
-/*   Updated: 2022/11/03 14:46:05 by druina           ###   ########.fr       */
+/*   Updated: 2022/11/04 11:03:17 by druina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+int	ft_iswhitespace(char c)
+{
+	if (c == ' ' || c == '\t' || c == '\n' || c == '\v' || c == '\f'
+		|| c == '\r')
+		return (1);
+	else
+		return (0);
+}
+
 int	ft_atoi(const char *str)
 {
 	unsigned long	nb;
-	int	sign;
-	int	i;
+	int				sign;
+	int				i;
 
 	nb = 0;
 	sign = 1;
 	i = 0;
-	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n' || str[i] == '\v'
-		|| str[i] == '\f' || str[i] == '\r')
+	while (ft_iswhitespace(str[i]) != 0)
 	{
 		i++;
 	}
@@ -34,10 +42,10 @@ int	ft_atoi(const char *str)
 	{
 		nb = nb * 10 + (str[i] - '0');
 		i++;
-		if(nb > 9223372036854775807 && sign == -1)
-			return(0);
-		else if(nb > 9223372036854775807 && sign == 1)
-			return(-1);
+		if (nb > 9223372036854775807 && sign == -1)
+			return (0);
+		else if (nb > 9223372036854775807 && sign == 1)
+			return (-1);
 	}
 	return (sign * nb);
 }

@@ -6,17 +6,38 @@
 /*   By: druina <druina@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 09:39:06 by druina            #+#    #+#             */
-/*   Updated: 2022/11/01 12:17:31 by druina           ###   ########.fr       */
+/*   Updated: 2022/11/04 15:02:29 by druina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+char	*min(void)
+{
+	char	*min;
+	char	*result;
+	char	*new;
+
+	result = (char *)malloc(sizeof(char) * 12);
+	if (!result)
+		return (NULL);
+	new = result;
+	min = "-2147483648";
+	while (*min)
+	{
+		*result++ = *min++;
+	}
+	*result++ = '\0';
+	return (new);
+}
 
 char	*zero(void)
 {
 	char	*result;
 
 	result = (char *)malloc(sizeof(char) * 2);
+	if (!result)
+		return (NULL);
 	result[0] = '0';
 	result[1] = '\0';
 	return (result);
@@ -31,6 +52,8 @@ char	*swap(char *s)
 	i = 0;
 	len = ft_strlen(s);
 	result = (char *)malloc(sizeof(char) * (len + 1));
+	if (!result)
+		return (NULL);
 	while (i < ft_strlen(s))
 	{
 		result[i] = s[len - 1];
@@ -41,7 +64,7 @@ char	*swap(char *s)
 	return (result);
 }
 
-char	*assign(int n, int count, int sign)
+char	*ft_assign(int n, int count, int sign)
 {
 	int		i;
 	char	*answer;
@@ -51,6 +74,8 @@ char	*assign(int n, int count, int sign)
 		answer = (char *)malloc((sizeof(char) * count) + 2);
 	else
 		answer = (char *)malloc((sizeof(char) * count) + 1);
+	if (!answer)
+		return (NULL);
 	while (i < count)
 	{
 		answer[i] = ((n % 10) + '0');
@@ -73,12 +98,12 @@ char	*ft_itoa(int n)
 	char	*answer;
 	int		count;
 	int		nb;
-	int		i;
 	int		sign;
 
-	i = 0;
 	count = 0;
 	sign = 1;
+	if (n == -2147483648)
+		return (min());
 	if (n == 0)
 		return (zero());
 	if (n < 0)
@@ -92,6 +117,6 @@ char	*ft_itoa(int n)
 		nb = (nb - nb % 10) / 10;
 		count++;
 	}
-	answer = assign(n, count, sign);
+	answer = ft_assign(n, count, sign);
 	return (answer);
 }

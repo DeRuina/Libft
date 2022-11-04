@@ -6,7 +6,7 @@
 /*   By: druina <druina@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 10:00:49 by druina            #+#    #+#             */
-/*   Updated: 2022/11/01 15:01:01 by druina           ###   ########.fr       */
+/*   Updated: 2022/11/04 16:58:54 by druina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ char	**makememory(const char *s, char c)
 		}
 		k = 0;
 	}
-	split[j] = "\0";
+	split[j] = 0;
 	return (split);
 }
 
@@ -77,11 +77,21 @@ char	**ft_split(char const *s, char c)
 	{
 		split = (char **)malloc(sizeof(char *) * 2);
 		split[0] = ft_substr(s, 0, ft_strlen((char *)s));
-		split[1] = "\0";
+		split[1] = 0;
 		return (split);
 	}
 	if (s[0] == c || s[ft_strlen((char *)s) - 1] == c)
 		s = ft_strtrim(s, makestring(c));
+		printf("%s\n", s);
 	split = makememory(s, c);
 	return (split);
+}
+int main(void)
+{
+char *s = "    n olol dfgdfg    ";
+	char **result;
+	result = ft_split(s, ' ');
+	while (*result)
+		printf("%s", *result++);
+	return(0);
 }

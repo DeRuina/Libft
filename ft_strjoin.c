@@ -6,7 +6,7 @@
 /*   By: druina <druina@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 16:24:50 by druina            #+#    #+#             */
-/*   Updated: 2022/10/28 16:50:44 by druina           ###   ########.fr       */
+/*   Updated: 2022/11/04 14:34:38 by druina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	i = 0;
 	j = 0;
+	if (!s1 || !s2)
+		return (NULL);
 	join = (char *)malloc(sizeof(char) * ((ft_strlen((char *)s1))
 				+ (ft_strlen((char *)s2)) + 1));
 	if (!join)
