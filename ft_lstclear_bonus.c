@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: druina <druina@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/26 10:33:05 by druina            #+#    #+#             */
-/*   Updated: 2022/11/08 18:04:47 by druina           ###   ########.fr       */
+/*   Created: 2022/11/08 19:53:47 by druina            #+#    #+#             */
+/*   Updated: 2022/11/08 20:28:51 by druina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	int		j;
-	char	*a;
-	char	*b;
+	t_list *temp;
+	if (lst == NULL || del == NULL)
+		return;
 
-	j = (int)n - 1;
-	a = (char *)dest;
-	b = (char *)src;
-	if (!dest && !src)
-		return (NULL);
-	if (a > b)
+	while(*lst)
 	{
-		while (j >= 0)
-		{
-			a[j] = b[j];
-			j--;
-		}
+		temp = (*lst)->next;
+		ft_lstdelone(*lst,del);
+		*lst = temp;
+
 	}
-	else
-		ft_memcpy(dest, src, n);
-	return (a);
+	*lst = NULL;
 }

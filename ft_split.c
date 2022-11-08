@@ -5,93 +5,110 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: druina <druina@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/31 10:00:49 by druina            #+#    #+#             */
-/*   Updated: 2022/11/04 16:58:54 by druina           ###   ########.fr       */
+/*   Created: 2022/11/04 15:33:45 by druina            #+#    #+#             */
+/*   Updated: 2022/11/08 17:13:04 by druina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 int	count(const char *s, char c)
 {
-	int	i;
 	int	count;
 
-	i = 0;
 	count = 0;
-	while (s[i] != '\0')
+	while (*s)
 	{
-		if (s[i] == c && s[i + 1] != c)
+		if (*s == c && *(s + 1) != c)
 			count++;
-		i++;
+		s++;
 	}
 	return (count);
 }
 
-char	**makememory(const char *s, char c)
+char	*con(char *s, char *temp)
 {
-	char	**split;
-	int		i;
-	int		j;
-	int		k;
+	int	l;
 
-	i = 0;
-	j = 0;
-	k = 0;
-	split = (char **)malloc(sizeof(char *) * (count(s, c) + 2));
-	while (s[i++] != '\0')
-	{
-		if (j == 0 && s[i] == c)
-			split[j++] = ft_substr(s, 0, i);
-		if (s[i] == c && s[i + 1] != c)
-		{
-			k = i + 1;
-			while (s[k] != c && s[k] != '\0')
-				k++;
-			split[j++] = ft_substr(s, i + 1, k - i - 1);
-		}
-		k = 0;
-	}
-	split[j] = 0;
-	return (split);
+	l = 0;
+	s = temp;
+	while (*temp++)
+		l++;
+	return (ft_substr(s, 0, l));
 }
 
-char	*makestring(char c)
+char	**makememory(char *s, char c, int l, int j)
 {
-	char	*str;
+	char	**an;
+	char	*temp;
 
-	str = (char *)malloc(sizeof(char) * 2);
-	str[0] = c;
-	str[1] = '\0';
-	return (str);
+	temp = s;
+	an = (char **)malloc(sizeof(char *) * (count(s, c) + 2));
+	while (*s++)
+	{
+		if (*s == c && *(s + 1) == c)
+			l++;
+		if (*(s + 1) == 0)
+		{
+			an[j++] = con(s, temp);
+			break ;
+		}
+		if (*s == c && *(s + 1) != c)
+		{
+			an[j++] = ft_substr(temp, 0, (ft_strlen(temp) - ft_strlen(s)) - l);
+			temp = s + 1;
+			l = 0;
+		}
+	}
+	an[j] = 0;
+	return (an);
+}
+
+char	*trimit(char const *s, char c)
+{
+	char	*temp;
+
+	while (*s == c)
+	{
+		s++;
+	}
+	temp = (char *)s;
+	s = &s[ft_strlen((char *)s) - 1];
+	while (*s == c)
+	{
+		s--;
+	}
+	temp = ft_substr(temp, 0, (ft_strlen(temp) - ft_strlen((char *)s) + 1));
+	if (!temp)
+		return (NULL);
+	return (temp);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	char	**split;
+	char	**result;
 
 	if (!s || s[0] == '\0' || c == 0 || c == '\0')
-		return (NULL);
+	{
+		result = (char **)malloc(sizeof(char *) * 1);
+		if (!result)
+			return (NULL);
+		result[0] = (char *)malloc(sizeof(char) * 1);
+		result[0] = 0;
+		return (result);
+	}
 	if (ft_strchr(s, c) == NULL)
 	{
 		split = (char **)malloc(sizeof(char *) * 2);
+		if (!split)
+			return (NULL);
 		split[0] = ft_substr(s, 0, ft_strlen((char *)s));
 		split[1] = 0;
 		return (split);
 	}
-	if (s[0] == c || s[ft_strlen((char *)s) - 1] == c)
-		s = ft_strtrim(s, makestring(c));
-		printf("%s\n", s);
-	split = makememory(s, c);
+	split = makememory(trimit((char *)s, c), c, 0, 0);
+	if (!split)
+		return (NULL);
 	return (split);
-}
-int main(void)
-{
-char *s = "    n olol dfgdfg    ";
-	char **result;
-	result = ft_split(s, ' ');
-	while (*result)
-		printf("%s", *result++);
-	return(0);
 }

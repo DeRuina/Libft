@@ -6,13 +6,13 @@
 /*   By: druina <druina@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 16:55:32 by druina            #+#    #+#             */
-/*   Updated: 2022/11/04 10:07:26 by druina           ###   ########.fr       */
+/*   Updated: 2022/11/08 18:05:21 by druina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s1, char const *set)
+char	*trim(char const *s1, char const *set)
 {
 	char	*temp;
 	int		i;
@@ -22,8 +22,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 	i = 0;
 	ci = 0;
 	cj = 0;
-	if (!s1 || s1[0] == '\0')
-		return ((char *)s1);
 	while (ft_strchr(set, s1[i]))
 	{
 		if (ft_strchr(set, s1[i]) != NULL)
@@ -39,4 +37,39 @@ char	*ft_strtrim(char const *s1, char const *set)
 	}
 	temp = ft_substr(s1, ci, (ft_strlen((char *)s1) - (ci + cj)));
 	return (temp);
+}
+
+int	check(char const *s1, char const *set)
+{
+	int	i;
+	int	ci;
+	int	cj;
+
+	i = 0;
+	ci = 0;
+	cj = 0;
+	while (set[ci] != '\0')
+	{
+		while (set[ci] == s1[i])
+		{
+			i++;
+			cj++;
+		}
+		if (set[ci] != s1[i])
+			break ;
+		i = 0;
+		ci++;
+	}
+	if (cj != 0)
+		return (1);
+	return (0);
+}
+
+char	*ft_strtrim(char const *s1, char const *set)
+{
+	if (!s1 || s1[0] == '\0')
+		return ((char *)s1);
+	if (check(s1, set) != 0)
+		return (ft_strdup(""));
+	return (trim(s1, set));
 }
