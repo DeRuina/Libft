@@ -6,7 +6,7 @@
 #    By: druina <druina@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/01 15:54:26 by druina            #+#    #+#              #
-#    Updated: 2022/11/08 20:22:36 by druina           ###   ########.fr        #
+#    Updated: 2022/11/09 20:42:23 by druina           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ ft_strjoin.c ft_strlcat.c ft_strlcpy.c ft_strlen.c ft_strmapi.c ft_strncmp.c ft_
 ft_strtrim.c ft_substr.c ft_tolower.c ft_toupper.c
 
 BONUSSRC = ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c ft_lstlast_bonus.c ft_lstadd_back_bonus.c\
-ft_lstdelone_bonus.c ft_lstclear_bonus.c ft_lstiter_bonus.c
+ft_lstdelone_bonus.c ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c
 
 BONUSOBJ = $(BONUSSRC:.c=.o)
 
@@ -33,11 +33,11 @@ HEADER = libft.h
 all: $(NAME)
 
 $(NAME): $(SRC)
-	gcc $(FLAGS) -c $(SRC) -I $(HEADER)
+	cc $(FLAGS) -c $(SRC) -I $(HEADER)
 	ar -rcs $(NAME) $(OBJECT)
 
 bonus: $(BONUSSRC)
-	gcc $(FLAGS) -c $(BONUSSRC) -I $(HEADER)
+	cc $(FLAGS) -c $(BONUSSRC) -I $(HEADER)
 	ar -rcs $(NAME) $(BONUSOBJ)
 
 clean:

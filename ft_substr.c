@@ -6,7 +6,7 @@
 /*   By: druina <druina@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 16:00:33 by druina            #+#    #+#             */
-/*   Updated: 2022/11/08 18:05:26 by druina           ###   ########.fr       */
+/*   Updated: 2022/11/09 10:45:48 by druina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	sub[i] = '\0';
 	return (sub);
 }
-/*int main(void)
-{
-	char	str[] = "lorem ipsum dolor sit amet";
-	char	*strsub;
-	strsub = ft_substr(str, 7, 0);
-	printf("%s\n", strsub);
-}*/

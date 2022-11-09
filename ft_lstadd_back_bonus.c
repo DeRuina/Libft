@@ -6,7 +6,7 @@
 /*   By: druina <druina@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 19:17:41 by druina            #+#    #+#             */
-/*   Updated: 2022/11/08 19:34:19 by druina           ###   ########.fr       */
+/*   Updated: 2022/11/09 10:48:58 by druina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,19 @@
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
+	t_list	*temp;
+
+	if (lst == NULL)
+		return ;
 	if (*lst == NULL)
 		*lst = new;
 	else
 	{
-		while ((*lst)->next != NULL)
+		temp = *lst;
+		while (temp->next != NULL)
 		{
-			(*lst) = (*lst)->next;
+			temp = temp->next;
 		}
-		(*lst)->next = new;
+		temp->next = new;
 	}
 }

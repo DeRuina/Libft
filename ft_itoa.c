@@ -6,13 +6,13 @@
 /*   By: druina <druina@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 09:39:06 by druina            #+#    #+#             */
-/*   Updated: 2022/11/04 15:02:29 by druina           ###   ########.fr       */
+/*   Updated: 2022/11/09 10:43:53 by druina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*min(void)
+static char	*min(void)
 {
 	char	*min;
 	char	*result;
@@ -31,7 +31,7 @@ char	*min(void)
 	return (new);
 }
 
-char	*zero(void)
+static char	*zero(void)
 {
 	char	*result;
 
@@ -43,7 +43,7 @@ char	*zero(void)
 	return (result);
 }
 
-char	*swap(char *s)
+static char	*swap(char *s)
 {
 	char	*result;
 	int		i;
@@ -64,7 +64,7 @@ char	*swap(char *s)
 	return (result);
 }
 
-char	*ft_assign(int n, int count, int sign)
+static char	*ft_assign(int n, int count, int sign)
 {
 	int		i;
 	char	*answer;

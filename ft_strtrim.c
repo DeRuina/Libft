@@ -6,13 +6,13 @@
 /*   By: druina <druina@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 16:55:32 by druina            #+#    #+#             */
-/*   Updated: 2022/11/08 18:05:21 by druina           ###   ########.fr       */
+/*   Updated: 2022/11/09 15:54:08 by druina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*trim(char const *s1, char const *set)
+static char	*trim(char const *s1, char const *set)
 {
 	char	*temp;
 	int		i;
@@ -39,7 +39,7 @@ char	*trim(char const *s1, char const *set)
 	return (temp);
 }
 
-int	check(char const *s1, char const *set)
+static int	check(char const *s1, char const *set)
 {
 	int	i;
 	int	ci;
@@ -56,7 +56,7 @@ int	check(char const *s1, char const *set)
 			cj++;
 		}
 		if (set[ci] != s1[i])
-			break ;
+			return (0);
 		i = 0;
 		ci++;
 	}
@@ -69,6 +69,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 {
 	if (!s1 || s1[0] == '\0')
 		return ((char *)s1);
+	if (!set)
+		return (NULL);
 	if (check(s1, set) != 0)
 		return (ft_strdup(""));
 	return (trim(s1, set));

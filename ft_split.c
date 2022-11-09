@@ -6,13 +6,13 @@
 /*   By: druina <druina@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 15:33:45 by druina            #+#    #+#             */
-/*   Updated: 2022/11/08 17:13:04 by druina           ###   ########.fr       */
+/*   Updated: 2022/11/09 10:44:44 by druina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	count(const char *s, char c)
+static int	count(const char *s, char c)
 {
 	int	count;
 
@@ -26,7 +26,7 @@ int	count(const char *s, char c)
 	return (count);
 }
 
-char	*con(char *s, char *temp)
+static char	*con(char *s, char *temp)
 {
 	int	l;
 
@@ -37,13 +37,15 @@ char	*con(char *s, char *temp)
 	return (ft_substr(s, 0, l));
 }
 
-char	**makememory(char *s, char c, int l, int j)
+static char	**makememory(char *s, char c, int j, char **an)
 {
-	char	**an;
 	char	*temp;
+	int		l;
 
+	l = 0;
+	if (!s)
+		return (NULL);
 	temp = s;
-	an = (char **)malloc(sizeof(char *) * (count(s, c) + 2));
 	while (*s++)
 	{
 		if (*s == c && *(s + 1) == c)
@@ -64,7 +66,7 @@ char	**makememory(char *s, char c, int l, int j)
 	return (an);
 }
 
-char	*trimit(char const *s, char c)
+static char	*trimit(char const *s, char c)
 {
 	char	*temp;
 
@@ -87,16 +89,15 @@ char	*trimit(char const *s, char c)
 char	**ft_split(char const *s, char c)
 {
 	char	**split;
-	char	**result;
 
-	if (!s || s[0] == '\0' || c == 0 || c == '\0')
+	if (!s || s[0] == '\0' || c == '\0')
 	{
-		result = (char **)malloc(sizeof(char *) * 1);
-		if (!result)
+		split = (char **)malloc(sizeof(char *) * 1);
+		if (!split)
 			return (NULL);
-		result[0] = (char *)malloc(sizeof(char) * 1);
-		result[0] = 0;
-		return (result);
+		split[0] = (char *)malloc(sizeof(char) * 1);
+		split[0] = 0;
+		return (split);
 	}
 	if (ft_strchr(s, c) == NULL)
 	{
@@ -107,8 +108,9 @@ char	**ft_split(char const *s, char c)
 		split[1] = 0;
 		return (split);
 	}
-	split = makememory(trimit((char *)s, c), c, 0, 0);
+	split = (char **)malloc(sizeof(char *) * (count(s, c) + 2));
 	if (!split)
 		return (NULL);
+	split = makememory(trimit((char *)s, c), c, 0, split);
 	return (split);
 }
