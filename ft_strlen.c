@@ -6,7 +6,7 @@
 /*   By: druina <druina@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 13:40:34 by druina            #+#    #+#             */
-/*   Updated: 2022/10/27 12:52:08 by druina           ###   ########.fr       */
+/*   Updated: 2022/11/18 17:47:49 by druina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	ft_strlen(char *src)
 	int	i;
 
 	i = 0;
+	if (src == NULL)
+		return (0);
 	while (src[i] != '\0')
 		i++;
 	return (i);

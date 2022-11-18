@@ -6,7 +6,7 @@
 /*   By: druina <druina@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 16:24:50 by druina            #+#    #+#             */
-/*   Updated: 2022/11/04 14:34:38 by druina           ###   ########.fr       */
+/*   Updated: 2022/11/18 17:47:27 by druina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,27 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*join;
+	char	*answer;
 	int		i;
-	int		j;
+	int		len;
 
+	if (!s1 && !s2)
+		return (NULL);
+	len = ft_strlen((char *)s1) + ft_strlen((char *)s2);
+	answer = (char *)malloc(sizeof(char) * (len + 1));
 	i = 0;
-	j = 0;
-	if (!s1 || !s2)
-		return (NULL);
-	join = (char *)malloc(sizeof(char) * ((ft_strlen((char *)s1))
-				+ (ft_strlen((char *)s2)) + 1));
-	if (!join)
-		return (NULL);
-	while (i < ft_strlen((char *)s1))
+	while (s1 != NULL && s1[i] != '\0')
 	{
-		join[i] = s1[i];
+		answer[i] = s1[i];
 		i++;
 	}
-	while (j < ft_strlen((char *)s2))
+	len = 0;
+	while (s2 != NULL && s2[len] != '\0')
 	{
-		join[i] = s2[j];
+		answer[i] = s2[len];
 		i++;
-		j++;
+		len++;
 	}
-	join[i] = '\0';
-	return (join);
+	answer[i] = '\0';
+	return (answer);
 }
