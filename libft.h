@@ -6,7 +6,7 @@
 /*   By: druina <druina@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 11:02:57 by druina            #+#    #+#             */
-/*   Updated: 2022/11/23 15:51:58 by druina           ###   ########.fr       */
+/*   Updated: 2022/11/28 16:11:11 by druina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,9 @@ t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 char				*get_next_line(int fd);
 char				*get_next_line_multiple(int fd);
 void				ft_putchar(char c);
-void				ft_putstr(char *str);
-void				ft_putnbr(int nb);
+int					ft_putstr(char *str);
+int					ft_putnbr(int nb);
+long				ft_nbrlen(long nb);
+int					ft_putnbr_unsigned(unsigned int nb);
+char				*ft_nbrtohex(unsigned int nb, char x);
 #endif

@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_nbrlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: druina <druina@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/23 15:34:16 by druina            #+#    #+#             */
-/*   Updated: 2022/11/25 15:01:34 by druina           ###   ########.fr       */
+/*   Created: 2022/11/28 08:02:36 by druina            #+#    #+#             */
+/*   Updated: 2022/11/28 08:10:38 by druina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int	ft_putstr(char *str)
+long	ft_nbrlen(long nb)
 {
-	int	i;
+	int	count;
 
-	i = 0;
-	while (str[i] != '\0')
+	count = 0;
+	if (nb < 0 || nb == 0)
 	{
-		ft_putchar(i);
-		i++;
+		nb = nb * -1;
+		count++;
 	}
-	return (i);
+	while (nb > 0)
+	{
+		nb = (nb - nb % 10) / 10;
+		count++;
+	}
+	return (count);
 }

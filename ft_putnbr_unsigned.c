@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_unsigned.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: druina <druina@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/23 15:34:16 by druina            #+#    #+#             */
-/*   Updated: 2022/11/25 15:01:34 by druina           ###   ########.fr       */
+/*   Created: 2022/11/28 08:48:53 by druina            #+#    #+#             */
+/*   Updated: 2022/11/28 08:51:57 by druina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_putstr(char *str)
+int	ft_putnbr_unsigned(unsigned int nb)
 {
-	int	i;
+	int	count;
 
-	i = 0;
-	while (str[i] != '\0')
+	count = ft_nbrlen(nb);
+	if (nb >= 10)
 	{
-		ft_putchar(i);
-		i++;
+		ft_putnbr(nb / 10);
+		ft_putnbr(nb % 10);
 	}
-	return (i);
+	else
+		ft_putchar('0' + nb);
+	return (count);
 }
