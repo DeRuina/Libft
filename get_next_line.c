@@ -12,14 +12,14 @@
 
 #include "libft.h"
 
-char static	*freelasttime(char *keep, char *line)
+static	char	*freelasttime(char *keep, char *line)
 {
 	free(keep);
 	free(line);
 	return (NULL);
 }
 
-char static	*keepbuf(char *keep)
+static	char	*keepbuf(char *keep)
 {
 	int		i;
 	int		j;
