@@ -6,7 +6,7 @@
 /*   By: druina <druina@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 15:34:16 by druina            #+#    #+#             */
-/*   Updated: 2022/11/25 15:01:34 by druina           ###   ########.fr       */
+/*   Updated: 2022/12/01 09:10:38 by druina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,10 @@ int	ft_putstr(char *str)
 	int	i;
 
 	i = 0;
-	while (str[i] != '\0')
+	while (*str != '\0')
 	{
-		ft_putchar(i);
+		ft_putchar(*str);
+		str++;
 		i++;
 	}
 	return (i);

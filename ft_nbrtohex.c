@@ -6,13 +6,13 @@
 /*   By: druina <druina@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 10:38:07 by druina            #+#    #+#             */
-/*   Updated: 2022/11/28 16:18:01 by druina           ###   ########.fr       */
+/*   Updated: 2022/12/01 08:47:59 by druina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_nbrtohex(unsigned int nb, char x)
+char	*ft_nbrtohex(unsigned long long nb, char x)
 {
 	char	hex[50];
 	char	*ptr;
