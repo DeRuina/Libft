@@ -6,7 +6,7 @@
 /*   By: druina <druina@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 11:02:57 by druina            #+#    #+#             */
-/*   Updated: 2022/12/22 14:43:09 by druina           ###   ########.fr       */
+/*   Updated: 2022/12/22 17:57:57 by druina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,8 @@ int					ft_isprint(int c);
  */
 int					ft_strlen(char *src);
 /**
- * @brief  the functions fills n bytes of memory from the start of pointer b with the character c
+
+	* @brief  the functions fills n bytes of memory from the start of pointer b with the character c
  * @note   returns a void pointer, not a void function!
  * @param  b: void pointer
  * @param  c: int
@@ -88,18 +89,21 @@ void				*ft_memset(void *b, int c, size_t n);
  * @brief  takes a character and if it's lowercase it returns it as an uppercase
  * @note   
  * @param  c: int
- * @retval if it's a lowercase character it return it as an uppercase else does nothing
+
+	* @retval if it's a lowercase character it return it as an uppercase else does nothing
  */
 int					ft_toupper(int c);
 /**
  * @brief  takes a character and if it's uppercase it returns it as a lowercase
  * @note   
  * @param  c: int
- * @retval if it's a uppercase character it return it as an lowercase else does nothing
+
+	* @retval if it's a uppercase character it return it as an lowercase else does nothing
  */
 int					ft_tolower(int c);
 /**
- * @brief  the functions erases the data in the n bytes of memory by chnaging them all to zero. starting where pointer s points to
+
+	* @brief  the functions erases the data in the n bytes of memory by chnaging them all to zero. starting where pointer s points to
  * @note  using ft_memset
  * @param  s: void pointer
  * @param  n: size_t
@@ -107,7 +111,8 @@ int					ft_tolower(int c);
  */
 void				ft_bzero(void *s, size_t n);
 /**
- * @brief  the functions copies n bytes from src to dest. The memory must not overlap.
+
+	* @brief  the functions copies n bytes from src to dest. The memory must not overlap.
  * @note   use ft_memmove if the memory areas overlap
  * @param  dest: void pointer
  * @param  src: void const pointer
@@ -116,23 +121,27 @@ void				ft_bzero(void *s, size_t n);
  */
 void				*ft_memcpy(void *dest, const void *src, size_t n);
 /**
- * @brief  the function returns a pointer to the first occurrence of c in string s
- * @note   the '/0' terminator included, use ft_memchr if you want to use not on a string
+
+	* @brief  the function returns a pointer to the first occurrence of c in string s
+ * @note the '/0' terminator included,
+	use ft_memchr if you want to use not on a string
  * @param  s: const char pointer - string
  * @param  c: int
  * @retval returns a pointer for the first occurence of c or NULL if not found
  */
 char				*ft_strchr(const char *s, int c);
 /**
- * @brief  the function returns a pointer to the last occurrence of c in string s
- * @note    the '/0' terminator included
+
+	* @brief  the function returns a pointer to the last occurrence of c in string s
+ * @note  uses ft_strlen, the '/0' terminator included
  * @param  s: const char pointer -string
  * @param  c: int
  * @retval returns a pointer for the last occurence of c or NULL if not found
  */
 char				*ft_strrchr(const char *s, int c);
 /**
- * @brief  the function copies n bytes from memory src to memory dest. the areas may overlap.
+
+	* @brief  the function copies n bytes from memory src to memory dest. the areas may overlap.
  * @note   uses ft_memcpy
  * @param  dest: void pointer
  * @param  src: const void pointer
@@ -146,11 +155,13 @@ void				*ft_memmove(void *dest, const void *src, size_t n);
  * @param  s1: const char pointer - string
  * @param  s2: const char pointer - string
  * @param  n: size_t
- * @retval 0 if they're equal, negative value if s1 is less than s2, positive value if s1 is greater than s2
+ * @retval 0 if they're equal, negative value if s1 is less than s2,
+	positive value if s1 is greater than s2
  */
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 /**
- * @brief  the function finds the first occurrence of c in n bytes range in pointer s
+
+	* @brief  the function finds the first occurrence of c in n bytes range in pointer s
  * @note   use ft_strchr if you want to use on strings
  * @param  s: const void pointer
  * @param  c: int
@@ -164,28 +175,164 @@ void				*ft_memchr(const void *s, int c, size_t n);
  * @param  s1: const void pointer
  * @param  s2: const void pointer
  * @param  n: size_t
- * @retval 0 if they're equal, negative value if s1 is less than s2, positive value if s1 is greater than s2
+ * @retval 0 if they're equal, negative value if s1 is less than s2,
+	positive value if s1 is greater than s2
  */
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
+/**
+
+	* @brief  the function locates the first occurrence of string needle in string haystack by n characters from the beginning of haystack
+ * @note   
+ * @param  haystack: const char pointer - string
+ * @param  needle: const char pointer - string 
+ * @param  n: size_t
+ * @retval if needle is NULL haystack is returned,
+	if needle does not accure in haystack NULL is returned,
+	otherwise a pointer to the first occurence of needle is returned
+ */
 char				*ft_strnstr(const char *haystack, const char *needle,
 						size_t n);
+/**
+ * @brief the function copies size -1 from src to dest, null terminmating the result
+ * @note uses ft_strlen  
+ * @param  dest: char pointer - string
+ * @param  src: const char pointer - string
+ * @param  destsize: size_t
+ * @retval the lenght of src
+ */
 size_t				ft_strlcpy(char *dest, const char *src, size_t destsize);
+/**
+ * @brief  the function appends src to the end of dest, it will append as much bytes as there is space to meaning if there is more space in dest.
+ * @note  uses ft_strlen, no matter how many bytes are copied dest will alwys be null terminated
+ * @param  dest: char pointer - string
+ * @param  src: const char pointer - string
+ * @param  destsize: size_t
+ * @retval lenght of dest + lenght of src
+ */
 size_t				ft_strlcat(char *dest, const char *src, size_t destsize);
+/**
+ * @brief  takes a string and returns it as a number
+ * @note  unsigned long limits
+ * @param  str: const char pointer - tring
+ * @retval the string as a int, NULL if any garbage lettes beforehand
+ */
 int					ft_atoi(const char *str);
+/**
+ * @brief  allocate dynamic memory and fill it with 0's
+ * @note uses ft_bzero 
+ * @param  count: size_t
+ * @param  size: size_t 
+ * @retval returns a pointer for the allocated memory
+ */
 void				*ft_calloc(size_t count, size_t size);
+/**
+ * @brief  the function takes a string and alloctaes memory to it using malloc
+ * @note uses ft_strlcpy, ft_strlen
+ * @param  s1: const char pointer - string
+ * @retval returns a pointer to the new allocated string
+ */
 char				*ft_strdup(const char *s1);
+/**
+ * @brief  the function creates a sub string from string s. the substring will start from s[start] and will be len long
+ * @note uses ft_strlen
+ * @param  s: char const pointer - string
+ * @param  start: unsigned int
+ * @param  len: size_t
+ * @retval the pointer to the substring
+ */
 char				*ft_substr(char const *s, unsigned int start, size_t len);
+/**
+ * @brief  the function takes two strings and joins them together to one
+ * @note uses ft_strlen  
+ * @param  s1: char const pointer - string
+ * @param  s2: char const pointer - string
+ * @retval the pointer to the joined string
+ */
 char				*ft_strjoin(char const *s1, char const *s2);
+/**
+ * @brief  the function trims string set from the begeinning and the end of string s1 if no set the return is NULL
+ * @note uses ft_strlen, ft_strdup, ft_strchr ft_strrchr and ft_substr 
+ * @param  s1: char const pointer - string
+ * @param  set: char const pointer - string
+ * @retval the pointer to the trimmed string
+ */
 char				*ft_strtrim(char const *s1, char const *set);
+/**
+ * @brief the function splits string s by every occurences of c. it returns splited strings in an array of strings
+ * @note uses ft_strlen, ft_strchr, ft_substr,  
+ * @param  s: char const pointer - string
+ * @param  c: char
+ * @retval the pointer to the array of strings. double pointer array
+ */
 char				**ft_split(char const *s, char c);
+/**
+ * @brief  the function takes a number and returns it as a string
+ * @note uses ft_strlen  
+ * @param  n: int
+ * @retval the pointer to the string
+ */
 char				*ft_itoa(int n);
+/**
+ * @brief Applies the function f to each character of the string s to create a new stringresulting from successive applications of f.
+ * @note uses ft_strlen  
+ * @param  s: char const pointer -string
+ * @param  f: (*f)(unsigned int, char *) - (function name)(index, char)
+ * @retval the pointer to the new fanctioned string
+ */
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+/**
+ * @brief Applies the function f to each character of the string s
+ * @note   
+ * @param  s: char const pointer -string
+ * @param  f: (*f)(unsigned int, char *) - (function name)(index, string)
+ * @retval None
+ */
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
+/**
+ * @brief  recieves a string and outputs it on the file descriptor
+ * @note  0 standart input, 1 standart ouput, 2 error  
+ * @param  s: char pointer - string
+ * @param  fd: file descriptor
+ * @retval None
+ */
 void				ft_putstr_fd(char *s, int fd);
+/**
+ * @brief recieves a string and outputs it on the file descriptor with a new line 
+ * @note  0 standart input, 1 standart ouput, 2 error   
+ * @param   s: char pointer - string
+ * @param  fd: file descriptor 
+ * @retval None
+ */
 void				ft_putendl_fd(char *s, int fd);
+/**
+ * @brief  recieves a number and outputs it on the file descriptor
+ * @note  0 standart input, 1 standart ouput, 2 error    
+ * @param  n: int
+ * @param  fd: file descriptor 
+ * @retval None
+ */
 void				ft_putnbr_fd(int n, int fd);
+/**
+ * @brief  the function creates a new node and sets its content to the inserted content and next to NULL
+ * @note uses structs  
+ * @param  content: void pointer
+ * @retval returns a t_list pointer of the new list (node)
+ */
 t_list				*ft_lstnew(void *content);
+/**
+ * @brief  adds a new node to the beginning of the list and makes it it's head.
+ * @note if the list is empthy the new node will be the head  
+ * @param  lst: the head of the list, type t_list
+ * @param  new: the node, type t_list
+ * @retval None
+ */
 void				ft_lstadd_front(t_list **lst, t_list *new);
+/**
+ * @brief  the function counts the lenght of the list
+ * @note   
+ * @param  lst: t_list pointer - the head
+ * @retval the lenght of the list
+ */
 int					ft_lstsize(t_list *lst);
 t_list				*ft_lstlast(t_list *lst);
 void				ft_lstadd_back(t_list **lst, t_list *new);
