@@ -6,7 +6,7 @@
 /*   By: druina <druina@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 11:02:57 by druina            #+#    #+#             */
-/*   Updated: 2022/12/22 13:06:12 by druina           ###   ########.fr       */
+/*   Updated: 2022/12/22 14:43:09 by druina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,14 +88,14 @@ void				*ft_memset(void *b, int c, size_t n);
  * @brief  takes a character and if it's lowercase it returns it as an uppercase
  * @note   
  * @param  c: int
- * @retval if it's a lowercase character it return it as an uppercase
+ * @retval if it's a lowercase character it return it as an uppercase else does nothing
  */
 int					ft_toupper(int c);
 /**
  * @brief  takes a character and if it's uppercase it returns it as a lowercase
  * @note   
  * @param  c: int
- * @retval if it's a uppercase character it return it as an lowercase
+ * @retval if it's a uppercase character it return it as an lowercase else does nothing
  */
 int					ft_tolower(int c);
 /**
@@ -117,10 +117,10 @@ void				ft_bzero(void *s, size_t n);
 void				*ft_memcpy(void *dest, const void *src, size_t n);
 /**
  * @brief  the function returns a pointer to the first occurrence of c in string s
- * @note   the '/0' terminator included
+ * @note   the '/0' terminator included, use ft_memchr if you want to use not on a string
  * @param  s: const char pointer - string
  * @param  c: int
- * @retval returns a pointer for the first occurence of c
+ * @retval returns a pointer for the first occurence of c or NULL if not found
  */
 char				*ft_strchr(const char *s, int c);
 /**
@@ -128,7 +128,7 @@ char				*ft_strchr(const char *s, int c);
  * @note    the '/0' terminator included
  * @param  s: const char pointer -string
  * @param  c: int
- * @retval returns a pointer for the last occurence of c
+ * @retval returns a pointer for the last occurence of c or NULL if not found
  */
 char				*ft_strrchr(const char *s, int c);
 /**
@@ -137,19 +137,35 @@ char				*ft_strrchr(const char *s, int c);
  * @param  dest: void pointer
  * @param  src: const void pointer
  * @param  n: size_t
- * @retval pointer dest
+ * @retval pointer dest 
  */
 void				*ft_memmove(void *dest, const void *src, size_t n);
 /**
- * @brief  
- * @note   
- * @param  *s1: 
- * @param  *s2: 
- * @param  n: 
- * @retval 
+ * @brief  the function compares n characters from string s1 and string s2
+ * @note   the first character that is not equal
+ * @param  s1: const char pointer - string
+ * @param  s2: const char pointer - string
+ * @param  n: size_t
+ * @retval 0 if they're equal, negative value if s1 is less than s2, positive value if s1 is greater than s2
  */
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
+/**
+ * @brief  the function finds the first occurrence of c in n bytes range in pointer s
+ * @note   use ft_strchr if you want to use on strings
+ * @param  s: const void pointer
+ * @param  c: int
+ * @param  n: size_t
+ * @retval return a pointer to the matching byte or NULL if not found
+ */
 void				*ft_memchr(const void *s, int c, size_t n);
+/**
+ * @brief  the function compares the first n bytes of the memory areas s1 & s2
+ * @note   if n is 0 the return is 0
+ * @param  s1: const void pointer
+ * @param  s2: const void pointer
+ * @param  n: size_t
+ * @retval 0 if they're equal, negative value if s1 is less than s2, positive value if s1 is greater than s2
+ */
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
 char				*ft_strnstr(const char *haystack, const char *needle,
 						size_t n);
