@@ -6,7 +6,7 @@
 /*   By: druina <druina@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 11:02:57 by druina            #+#    #+#             */
-/*   Updated: 2022/12/01 08:48:34 by druina           ###   ########.fr       */
+/*   Updated: 2022/12/22 13:06:12 by druina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,22 +25,129 @@ typedef struct s_list
 	void			*content;
 	struct s_list	*next;
 }					t_list;
-
+/**
+ * @brief  recieves a char and prints it on the fd output
+ * @note   0 standart input, 1 standart ouput, 2 error
+ * @param  c: char
+ * @param  fd: the file descriptor
+ * @retval None
+ */
 void				ft_putchar_fd(char c, int fd);
+/**
+ * @brief  checks if the variable is an alphabetic character
+ * @note   uppercase & lower case
+ * @param  c: int
+ * @retval 1 if correct, 0 if not
+ */
 int					ft_isalpha(int c);
+/**
+ * @brief  checks if the variable is a digit between 0-9
+ * @note   
+ * @param  c: int
+ * @retval 1 if correct, 0 if not
+ */
 int					ft_isdigit(int c);
+/**
+ * @brief  checks if the variable is a digit or an Alphabetic character
+ * @note   digit, uppercase or lowercase
+ * @param  c: int
+ * @retval 1 if correct, 0 if not
+ */
 int					ft_isalnum(int c);
+/**
+ * @brief  checks if the variable is in the range of the decimal ascii table
+ * @note   0-127
+ * @param  c: int
+ * @retval 1 if correct, 0 if not
+ */
 int					ft_isascii(int c);
+/**
+ * @brief  checks if the variable is printable as an output
+ * @note   in decimal ascii table
+ * @param  c: int
+ * @retval 1 if correct, 0 if not
+ */
 int					ft_isprint(int c);
+/**
+ * @brief  takes a char string and returns the lenght of the string
+ * @note   returns an int
+ * @param  src: char pointer - string
+ * @retval the lenght of the string. 0 if NULL
+ */
 int					ft_strlen(char *src);
+/**
+ * @brief  the functions fills n bytes of memory from the start of pointer b with the character c
+ * @note   returns a void pointer, not a void function!
+ * @param  b: void pointer
+ * @param  c: int
+ * @param  n: size_t
+ * @retval returns pointer b
+ */
 void				*ft_memset(void *b, int c, size_t n);
+/**
+ * @brief  takes a character and if it's lowercase it returns it as an uppercase
+ * @note   
+ * @param  c: int
+ * @retval if it's a lowercase character it return it as an uppercase
+ */
 int					ft_toupper(int c);
+/**
+ * @brief  takes a character and if it's uppercase it returns it as a lowercase
+ * @note   
+ * @param  c: int
+ * @retval if it's a uppercase character it return it as an lowercase
+ */
 int					ft_tolower(int c);
+/**
+ * @brief  the functions erases the data in the n bytes of memory by chnaging them all to zero. starting where pointer s points to
+ * @note  using ft_memset
+ * @param  s: void pointer
+ * @param  n: size_t
+ * @retval None
+ */
 void				ft_bzero(void *s, size_t n);
+/**
+ * @brief  the functions copies n bytes from src to dest. The memory must not overlap.
+ * @note   use ft_memmove if the memory areas overlap
+ * @param  dest: void pointer
+ * @param  src: void const pointer
+ * @param  n: size_t
+ * @retval pointer dest
+ */
 void				*ft_memcpy(void *dest, const void *src, size_t n);
+/**
+ * @brief  the function returns a pointer to the first occurrence of c in string s
+ * @note   the '/0' terminator included
+ * @param  s: const char pointer - string
+ * @param  c: int
+ * @retval returns a pointer for the first occurence of c
+ */
 char				*ft_strchr(const char *s, int c);
+/**
+ * @brief  the function returns a pointer to the last occurrence of c in string s
+ * @note    the '/0' terminator included
+ * @param  s: const char pointer -string
+ * @param  c: int
+ * @retval returns a pointer for the last occurence of c
+ */
 char				*ft_strrchr(const char *s, int c);
+/**
+ * @brief  the function copies n bytes from memory src to memory dest. the areas may overlap.
+ * @note   uses ft_memcpy
+ * @param  dest: void pointer
+ * @param  src: const void pointer
+ * @param  n: size_t
+ * @retval pointer dest
+ */
 void				*ft_memmove(void *dest, const void *src, size_t n);
+/**
+ * @brief  
+ * @note   
+ * @param  *s1: 
+ * @param  *s2: 
+ * @param  n: 
+ * @retval 
+ */
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 void				*ft_memchr(const void *s, int c, size_t n);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
