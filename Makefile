@@ -6,7 +6,7 @@
 #    By: druina <druina@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/01 15:54:26 by druina            #+#    #+#              #
-#    Updated: 2022/12/01 07:06:13 by druina           ###   ########.fr        #
+#    Updated: 2022/12/23 15:10:37 by druina           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ ft_strjoin.c ft_strlcat.c ft_strlcpy.c ft_strlen.c ft_strmapi.c ft_strncmp.c ft_
 ft_strtrim.c ft_substr.c ft_tolower.c ft_toupper.c get_next_line.c get_next_line_multiple.c ft_putchar.c\
 ft_putstr.c ft_putnbr.c ft_nbrlen.c ft_putnbr_unsigned.c ft_nbrtohex.c ft_lstnew_bonus.c\
 ft_lstadd_front_bonus.c ft_lstsize_bonus.c ft_lstlast_bonus.c ft_lstadd_back_bonus.c\
-ft_lstdelone_bonus.c ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c
+ft_lstdelone_bonus.c ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c print_nbr_u.c\
+print_nbr.c print_p.c print_s.c print_x.c print_c.c ft_printf.c
 
 
 OBJECT = $(SRC:.c=.o)
@@ -37,8 +38,29 @@ $(NAME): $(SRC)
 
 clean:
 	rm -f $(OBJECT) $(BONUSOBJ)
+	@echo "\033[31mNO DON'T DO IT, NO!!!!\033[39m"
 
 fclean: clean
 	rm -f $(NAME)
+	@echo "\033[31mWHY YOU KILL ME?!"
+	@echo "$$KILL\033[39m"
 
 re: fclean all
+
+define KILL
+              _
+             | |
+             | |===( )   //////
+             |_|   |||  | o o|
+                    ||| ( c  )                  ____
+                     ||| \= /                  ||   \_
+                      ||||||                   ||     |
+                      ||||||                ...||__/|-"
+                      ||||||             __|________|__
+                        |||             |______________|
+                        |||             || ||      || ||
+                        |||             || ||      || ||
+------------------------|||-------------||-||------||-||-------
+                        |__>            || ||      || ||
+endef
+export KILL
