@@ -6,7 +6,7 @@
 /*   By: druina <druina@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 11:02:57 by druina            #+#    #+#             */
-/*   Updated: 2022/12/22 17:57:57 by druina           ###   ########.fr       */
+/*   Updated: 2022/12/23 14:32:14 by druina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void				ft_putchar_fd(char c, int fd);
 int					ft_isalpha(int c);
 /**
  * @brief  checks if the variable is a digit between 0-9
- * @note   
+ * @note
  * @param  c: int
  * @retval 1 if correct, 0 if not
  */
@@ -87,7 +87,7 @@ int					ft_strlen(char *src);
 void				*ft_memset(void *b, int c, size_t n);
 /**
  * @brief  takes a character and if it's lowercase it returns it as an uppercase
- * @note   
+ * @note
  * @param  c: int
 
 	* @retval if it's a lowercase character it return it as an uppercase else does nothing
@@ -95,7 +95,7 @@ void				*ft_memset(void *b, int c, size_t n);
 int					ft_toupper(int c);
 /**
  * @brief  takes a character and if it's uppercase it returns it as a lowercase
- * @note   
+ * @note
  * @param  c: int
 
 	* @retval if it's a uppercase character it return it as an lowercase else does nothing
@@ -146,7 +146,7 @@ char				*ft_strrchr(const char *s, int c);
  * @param  dest: void pointer
  * @param  src: const void pointer
  * @param  n: size_t
- * @retval pointer dest 
+ * @retval pointer dest
  */
 void				*ft_memmove(void *dest, const void *src, size_t n);
 /**
@@ -182,9 +182,9 @@ int					ft_memcmp(const void *s1, const void *s2, size_t n);
 /**
 
 	* @brief  the function locates the first occurrence of string needle in string haystack by n characters from the beginning of haystack
- * @note   
+ * @note
  * @param  haystack: const char pointer - string
- * @param  needle: const char pointer - string 
+ * @param  needle: const char pointer - string
  * @param  n: size_t
  * @retval if needle is NULL haystack is returned,
 	if needle does not accure in haystack NULL is returned,
@@ -194,7 +194,7 @@ char				*ft_strnstr(const char *haystack, const char *needle,
 						size_t n);
 /**
  * @brief the function copies size -1 from src to dest, null terminmating the result
- * @note uses ft_strlen  
+ * @note uses ft_strlen
  * @param  dest: char pointer - string
  * @param  src: const char pointer - string
  * @param  destsize: size_t
@@ -219,9 +219,9 @@ size_t				ft_strlcat(char *dest, const char *src, size_t destsize);
 int					ft_atoi(const char *str);
 /**
  * @brief  allocate dynamic memory and fill it with 0's
- * @note uses ft_bzero 
+ * @note uses ft_bzero
  * @param  count: size_t
- * @param  size: size_t 
+ * @param  size: size_t
  * @retval returns a pointer for the allocated memory
  */
 void				*ft_calloc(size_t count, size_t size);
@@ -243,7 +243,7 @@ char				*ft_strdup(const char *s1);
 char				*ft_substr(char const *s, unsigned int start, size_t len);
 /**
  * @brief  the function takes two strings and joins them together to one
- * @note uses ft_strlen  
+ * @note uses ft_strlen
  * @param  s1: char const pointer - string
  * @param  s2: char const pointer - string
  * @retval the pointer to the joined string
@@ -251,7 +251,7 @@ char				*ft_substr(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);
 /**
  * @brief  the function trims string set from the begeinning and the end of string s1 if no set the return is NULL
- * @note uses ft_strlen, ft_strdup, ft_strchr ft_strrchr and ft_substr 
+ * @note uses ft_strlen, ft_strdup, ft_strchr ft_strrchr and ft_substr
  * @param  s1: char const pointer - string
  * @param  set: char const pointer - string
  * @retval the pointer to the trimmed string
@@ -259,7 +259,7 @@ char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strtrim(char const *s1, char const *set);
 /**
  * @brief the function splits string s by every occurences of c. it returns splited strings in an array of strings
- * @note uses ft_strlen, ft_strchr, ft_substr,  
+ * @note uses ft_strlen, ft_strchr, ft_substr,
  * @param  s: char const pointer - string
  * @param  c: char
  * @retval the pointer to the array of strings. double pointer array
@@ -267,14 +267,14 @@ char				*ft_strtrim(char const *s1, char const *set);
 char				**ft_split(char const *s, char c);
 /**
  * @brief  the function takes a number and returns it as a string
- * @note uses ft_strlen  
+ * @note uses ft_strlen
  * @param  n: int
  * @retval the pointer to the string
  */
 char				*ft_itoa(int n);
 /**
  * @brief Applies the function f to each character of the string s to create a new stringresulting from successive applications of f.
- * @note uses ft_strlen  
+ * @note uses ft_strlen
  * @param  s: char const pointer -string
  * @param  f: (*f)(unsigned int, char *) - (function name)(index, char)
  * @retval the pointer to the new fanctioned string
@@ -282,7 +282,7 @@ char				*ft_itoa(int n);
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 /**
  * @brief Applies the function f to each character of the string s
- * @note   
+ * @note
  * @param  s: char const pointer -string
  * @param  f: (*f)(unsigned int, char *) - (function name)(index, string)
  * @retval None
@@ -290,38 +290,38 @@ char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
 /**
  * @brief  recieves a string and outputs it on the file descriptor
- * @note  0 standart input, 1 standart ouput, 2 error  
+ * @note  0 standart input, 1 standart ouput, 2 error
  * @param  s: char pointer - string
  * @param  fd: file descriptor
  * @retval None
  */
 void				ft_putstr_fd(char *s, int fd);
 /**
- * @brief recieves a string and outputs it on the file descriptor with a new line 
- * @note  0 standart input, 1 standart ouput, 2 error   
+ * @brief recieves a string and outputs it on the file descriptor with a new line
+ * @note  0 standart input, 1 standart ouput, 2 error
  * @param   s: char pointer - string
- * @param  fd: file descriptor 
+ * @param  fd: file descriptor
  * @retval None
  */
 void				ft_putendl_fd(char *s, int fd);
 /**
  * @brief  recieves a number and outputs it on the file descriptor
- * @note  0 standart input, 1 standart ouput, 2 error    
+ * @note  0 standart input, 1 standart ouput, 2 error
  * @param  n: int
- * @param  fd: file descriptor 
+ * @param  fd: file descriptor
  * @retval None
  */
 void				ft_putnbr_fd(int n, int fd);
 /**
  * @brief  the function creates a new node and sets its content to the inserted content and next to NULL
- * @note uses structs  
+ * @note uses structs
  * @param  content: void pointer
  * @retval returns a t_list pointer of the new list (node)
  */
 t_list				*ft_lstnew(void *content);
 /**
  * @brief  adds a new node to the beginning of the list and makes it it's head.
- * @note if the list is empthy the new node will be the head  
+ * @note if the list is empthy the new node will be the head
  * @param  lst: the head of the list, type t_list
  * @param  new: the node, type t_list
  * @retval None
@@ -329,24 +329,118 @@ t_list				*ft_lstnew(void *content);
 void				ft_lstadd_front(t_list **lst, t_list *new);
 /**
  * @brief  the function counts the lenght of the list
- * @note   
+ * @note
  * @param  lst: t_list pointer - the head
  * @retval the lenght of the list
  */
 int					ft_lstsize(t_list *lst);
+/**
+ * @brief returns the last node of the list
+ * @note if lst NULL it still returns lst
+ * @param lst: t_list pointer - the head
+ * @retval lst - the last node
+ */
 t_list				*ft_lstlast(t_list *lst);
+/**
+ * @brief adds a new node in the back of the list
+ * @note if lst is NULL it does nothing
+ * @param lst: the head of the list, type t_list
+ * @param new: the node, type t_list
+ * @retval none
+ */
 void				ft_lstadd_back(t_list **lst, t_list *new);
+/**
+ * @brief Takes as a parameter a node and frees the memory of
+the node’s content using the function ’del’ given
+as a parameter and free the node
+ * @note if lst is empthy it does nothing
+ * @param lst: the head of the list, type t_list
+ * @param del: a function that deletes the node contect
+ * @retval none
+ */
 void				ft_lstdelone(t_list *lst, void (*del)(void *));
+/**
+ * @brief deletes and frees the list using the del function
+ * @note if lst or del is NULL it does nothing
+ * @param lst: the head of the list, type t_list
+ * @param del: a function that deletes the node contect
+ * @retval none
+ */
 void				ft_lstclear(t_list **lst, void (*del)(void *));
+/**
+ * @brief iterates the list and makes the function f on every content of every node
+ * @note if lst or f is NULL it does nothing
+ * @param lst: the head of the list, type t_list
+ * @param f: a function
+ * @retval none
+ */
 void				ft_lstiter(t_list *lst, void (*f)(void *));
+/**
+ * @brief iterates the list and makes the function f on every content of every node returning a new list of the applied nodes.
+ * @note The del function is used to
+delete the content of a node if needed.
+ * @param lst: the head of the list, type t_list
+ * @param f: a function
+ * @param del: a function that deletes the node contect
+ * @retval the new list
+ */
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 						void (*del)(void *));
+/**
+ * @brief the function returns a line read from a file, /n (new line) included
+ * @note uses ft_strlen, ft_strjoin & ft_strchr 0 standart input, 1 standart ouput, 2 error
+ * @param fd: file descriptor
+ * @retval the line read
+ */
 char				*get_next_line(int fd);
+/**
+ * @brief the function returns a line read from a file, /n (new line) included, it works with multiple files at once
+ * @note uses ft_strlen, ft_strjoin & ft_strchr 0 standart input, 1 standart ouput, 2 error
+ * @param fd: file descriptor
+ * @retval the line read from different fd's
+ */
 char				*get_next_line_multiple(int fd);
+/**
+ * @brief write a character on the standart output
+ * @note fd 1
+ * @param c: char
+ * @retval none
+ */
 void				ft_putchar(char c);
+/**
+ * @brief writes a string on the standart output and returns it's lenght
+ * @note fd 1
+ * @param str: char pointer - string
+ * @retval the lenght of the string
+ */
 int					ft_putstr(char *str);
+/**
+ * @brief writes an int number on the standart output and returns the lenght of the digits written
+ * @note uses ft_nbrlen
+ * @param nb; int
+ * @retval the lenght of the digits of the number
+ */
 int					ft_putnbr(int nb);
+/**
+ * @brief calculates the lenght of the number. number of digits
+ * @note takes minus as well
+ * @param nb; long
+ * @retval the lenght of the digits of the number
+ */
 long				ft_nbrlen(long nb);
+/**
+ * @brief writes an unsigned int number on the standart output and returns the lenght of the digits written
+ * @note only takes unsigned numbers
+ * @param nb; unsigned int
+ * @retval the lenght of the digits of the number
+ */
 int					ft_putnbr_unsigned(unsigned int nb);
+/**
+ * @brief takes a number as a deciaml and returns it as hexadecimal
+ * @note returns a string
+ * @param nb: unsigned long long
+ * @param x: uppercase hex or lowercase hex
+ * @retval the hex value
+ */
 char				*ft_nbrtohex(unsigned long long nb, char x);
 #endif
