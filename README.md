@@ -5,7 +5,8 @@ new functions to improve my library and use it for my future
 projects. The basic project was a 42 curriculum project, with 
 time I implemented and added more of my own functions.
 
-In order to comline the program you just run:
+In order to comline the program you just run in the terminal
+the command: 
 ```bash
  make
 ```
