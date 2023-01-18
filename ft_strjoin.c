@@ -6,7 +6,7 @@
 /*   By: druina <druina@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 16:24:50 by druina            #+#    #+#             */
-/*   Updated: 2022/11/18 17:47:27 by druina           ###   ########.fr       */
+/*   Updated: 2023/01/18 10:05:28 by druina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (NULL);
 	len = ft_strlen((char *)s1) + ft_strlen((char *)s2);
 	answer = (char *)malloc(sizeof(char) * (len + 1));
+	if (!answer)
+		return (NULL);
 	i = 0;
 	while (s1 != NULL && s1[i] != '\0')
 	{
