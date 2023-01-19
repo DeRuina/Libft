@@ -6,7 +6,7 @@
 #    By: druina <druina@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/01 15:54:26 by druina            #+#    #+#              #
-#    Updated: 2022/12/23 15:10:37 by druina           ###   ########.fr        #
+#    Updated: 2023/01/19 16:12:25 by druina           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,15 +33,15 @@ HEADER = libft.h
 all: $(NAME)
 
 $(NAME): $(SRC)
-	cc $(FLAGS) -c $(SRC) -I $(HEADER)
-	ar -rcs $(NAME) $(OBJECT)
+	@cc $(FLAGS) -c $(SRC) -I $(HEADER)
+	@ar -rcs $(NAME) $(OBJECT)
 
 clean:
-	rm -f $(OBJECT) $(BONUSOBJ)
+	@rm -f $(OBJECT) $(BONUSOBJ)
 	@echo "\033[31mNO DON'T DO IT, NO!!!!\033[39m"
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 	@echo "\033[31mWHY YOU KILL ME?!"
 	@echo "$$KILL\033[39m"
 
