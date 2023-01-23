@@ -6,12 +6,11 @@
 /*   By: druina <druina@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 15:33:45 by druina            #+#    #+#             */
-/*   Updated: 2023/01/23 10:15:06 by druina           ###   ########.fr       */
+/*   Updated: 2023/01/23 15:08:04 by druina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 static int	count(const char *s, char c)
 {
