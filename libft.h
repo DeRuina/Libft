@@ -6,7 +6,7 @@
 /*   By: druina <druina@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 11:02:57 by druina            #+#    #+#             */
-/*   Updated: 2023/01/20 08:12:45 by druina           ###   ########.fr       */
+/*   Updated: 2023/01/23 10:20:40 by druina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -525,4 +525,21 @@ int					print_x(unsigned int nb, char x, int count);
  * @retval the count for ft_printf
  */
 int					print_p(void *ptr, int count);
+/**
+ * @brief uses the con_for_split() and returns the full char** for split
+ norm reasons
+ * @param an
+ * @param j
+ * @param temp2
+ * @param temp
+ * @return the full splited array of arrays
+ */
+char				**return_end_answer_for_split(char **an,
+						int j, char *temp2, char *temp);
+/**
+ * @brief makes the last word array for split
+ * @param temp
+ * @return the last word array in the array for split
+ */
+char				*con_for_split(char *temp);
 #endif
