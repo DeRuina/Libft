@@ -1,42 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_split2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: druina <druina@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/28 16:00:33 by druina            #+#    #+#             */
-/*   Updated: 2022/11/09 10:45:48 by druina           ###   ########.fr       */
+/*   Created: 2023/01/23 10:08:03 by druina            #+#    #+#             */
+/*   Updated: 2023/01/23 10:15:13 by druina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*con_for_split(char *temp)
 {
+	int		l;
 	char	*sub;
-	size_t	i;
+	char	*s2;
 
-	i = 0;
-	if (!s)
-		return (NULL);
-	if ((int)start >= ft_strlen((char *)s))
-	{
-		sub = (char *)malloc(sizeof(char) * 1);
-		if (!sub)
-			return (NULL);
-		sub[0] = '\0';
-		return (sub);
-	}
-	sub = (char *)malloc(sizeof(char) * len + 1);
+	l = 0;
+	s2 = temp;
+	while (*temp++)
+		l++;
+	sub = ft_substr(s2, 0, l);
 	if (!sub)
-		return (NULL);
-	while (i < len)
 	{
-		sub[i] = s[start];
-		i++;
-		start++;
+		free(sub);
+		free(s2);
+		return (NULL);
 	}
-	sub[i] = '\0';
 	return (sub);
+}
+
+char	**return_end_answer_for_split(char **an, int j, char *temp2, char *temp)
+{
+	an[j++] = con_for_split(temp);
+	an[j] = 0;
+	free(temp2);
+	return (an);
 }

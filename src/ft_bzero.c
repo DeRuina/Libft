@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_nbrlen.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: druina <druina@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/28 08:02:36 by druina            #+#    #+#             */
-/*   Updated: 2022/11/28 08:10:38 by druina           ###   ########.fr       */
+/*   Created: 2022/10/25 15:41:39 by druina            #+#    #+#             */
+/*   Updated: 2023/01/25 11:36:56 by druina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-long	ft_nbrlen(long nb)
-{
-	int	count;
+#include "libft.h"
 
-	count = 0;
-	if (nb < 0 || nb == 0)
-	{
-		nb = nb * -1;
-		count++;
-	}
-	while (nb > 0)
-	{
-		nb = (nb - nb % 10) / 10;
-		count++;
-	}
-	return (count);
+void	ft_bzero(void *s, size_t n)
+{
+	ft_memset(s, 0, n);
 }

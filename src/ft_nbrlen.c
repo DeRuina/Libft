@@ -1,40 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_nbrlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: druina <druina@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/28 16:24:50 by druina            #+#    #+#             */
-/*   Updated: 2022/11/18 17:47:27 by druina           ###   ########.fr       */
+/*   Created: 2022/11/28 08:02:36 by druina            #+#    #+#             */
+/*   Updated: 2023/01/25 11:37:28 by druina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+long	ft_nbrlen(long nb)
 {
-	char	*answer;
-	int		i;
-	int		len;
+	int	count;
 
-	if (!s1 && !s2)
-		return (NULL);
-	len = ft_strlen((char *)s1) + ft_strlen((char *)s2);
-	answer = (char *)malloc(sizeof(char) * (len + 1));
-	i = 0;
-	while (s1 != NULL && s1[i] != '\0')
+	count = 0;
+	if (nb < 0 || nb == 0)
 	{
-		answer[i] = s1[i];
-		i++;
+		nb = nb * -1;
+		count++;
 	}
-	len = 0;
-	while (s2 != NULL && s2[len] != '\0')
+	while (nb > 0)
 	{
-		answer[i] = s2[len];
-		i++;
-		len++;
+		nb = (nb - nb % 10) / 10;
+		count++;
 	}
-	answer[i] = '\0';
-	return (answer);
+	return (count);
 }
