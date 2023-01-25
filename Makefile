@@ -6,7 +6,11 @@
 #    By: druina <druina@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/01 15:54:26 by druina            #+#    #+#              #
+<<<<<<< HEAD
 #    Updated: 2023/01/25 11:59:08 by druina           ###   ########.fr        #
+=======
+#    Updated: 2023/01/23 10:10:32 by druina           ###   ########.fr        #
+>>>>>>> 3890ef5a01a50d562f76e2acafacb1f7179db9b9
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,12 +40,21 @@ HEADER = ./src/libft.h
 
 all: $(NAME)
 
+<<<<<<< HEAD
 $(NAME): $(SRCPATH)
 	@cc $(FLAGS) -c $(SRCPATH) -I $(HEADER)
 	@ar -rcs $(NAME) $(OBJECT)
 
 clean:
 	@rm -f $(OBJECT) 
+=======
+$(NAME): $(SRC)
+	@cc $(FLAGS) -c $(SRC) -I $(HEADER)
+	@ar -rcs $(NAME) $(OBJECT)
+
+clean:
+	@rm -f $(OBJECT) $(BONUSOBJ)
+>>>>>>> 3890ef5a01a50d562f76e2acafacb1f7179db9b9
 	@echo "\033[31mNO DON'T DO IT, NO!!!!\033[39m"
 
 fclean: clean
