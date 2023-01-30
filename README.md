@@ -77,17 +77,17 @@ libft.a
 
 <table>
 	<tr>
-		<td><a href ="./src/ft_lstnew.c">ft_lstnew</a></td>
-		<td><a href ="./src/ft_lstadd_front.c">ft_lstadd_front</a></td>
-		<td><a href ="./src/ft_lstsize.c">ft_lstsize</a></td>
-		<td><a href ="./src/ft_lstlast.c">ft_lstlast</a></td>
-		<td><a href ="./src/ft_lstadd_back.c">ft_lstadd_back</a></td>
+		<td><a href ="./src/ft_lstnew_bonus.c">ft_lstnew</a></td>
+		<td><a href ="./src/ft_lstadd_front_bonus.c">ft_lstadd_front</a></td>
+		<td><a href ="./src/ft_lstsize_bonus.c">ft_lstsize</a></td>
+		<td><a href ="./src/ft_lstlast_bonus.c">ft_lstlast</a></td>
+		<td><a href ="./src/ft_lstadd_back_bonus.c">ft_lstadd_back</a></td>
 	</tr>
 	<tr>
-		<td><a href ="./src/ft_lstdelone.c">ft_lstdelone</a></td>
-		<td><a href ="./src/ft_lstclear.c">ft_lstclear</a></td>
-		<td><a href ="./src/ft_lstiter.c">ft_lstiter</a></td>
-		<td><a href ="./src/ft_lstmap.c">ft_lstmap</a></td>
+		<td><a href ="./src/ft_lstdelone_bonus.c">ft_lstdelone</a></td>
+		<td><a href ="./src/ft_lstclear_bonus.c">ft_lstclear</a></td>
+		<td><a href ="./src/ft_lstiter_bonus.c">ft_lstiter</a></td>
+		<td><a href ="./src/ft_lstmap_bonus.c">ft_lstmap</a></td>
 	</tr>
 </table>
 
