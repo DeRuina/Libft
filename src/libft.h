@@ -6,7 +6,7 @@
 /*   By: druina <druina@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 11:02:57 by druina            #+#    #+#             */
-/*   Updated: 2023/01/23 10:20:40 by druina           ###   ########.fr       */
+/*   Updated: 2023/02/08 09:47:43 by druina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -542,4 +542,9 @@ char				**return_end_answer_for_split(char **an,
  * @return the last word array in the array for split
  */
 char				*con_for_split(char *temp);
+/**
+ * @brief Takes a 2D array and frees it
+ *
+ */
+void				free_2d(char **str);
 #endif
