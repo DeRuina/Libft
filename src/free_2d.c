@@ -6,13 +6,13 @@
 /*   By: druina <druina@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 09:44:16 by druina            #+#    #+#             */
-/*   Updated: 2023/02/08 09:48:37 by druina           ###   ########.fr       */
+/*   Updated: 2023/02/08 11:08:25 by druina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	free_2d(char **str)
+int	free_2d(char **str)
 {
 	char	**temp;
 
@@ -23,4 +23,5 @@ void	free_2d(char **str)
 		str++;
 	}
 	free(temp);
+	return (-1);
 }

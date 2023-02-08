@@ -6,7 +6,7 @@
 /*   By: druina <druina@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 11:02:57 by druina            #+#    #+#             */
-/*   Updated: 2023/02/08 09:47:43 by druina           ###   ########.fr       */
+/*   Updated: 2023/02/08 11:08:41 by druina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -544,7 +544,7 @@ char				**return_end_answer_for_split(char **an,
 char				*con_for_split(char *temp);
 /**
  * @brief Takes a 2D array and frees it
- *
+ * @return -1
  */
-void				free_2d(char **str);
+int					free_2d(char **str);
 #endif
