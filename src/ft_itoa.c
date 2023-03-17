@@ -6,7 +6,7 @@
 /*   By: druina <druina@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 09:39:06 by druina            #+#    #+#             */
-/*   Updated: 2023/03/17 10:39:05 by druina           ###   ########.fr       */
+/*   Updated: 2023/03/17 10:53:33 by druina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static char	*swap(char *s)
 
 	i = 0;
 	len = ft_strlen(s);
-	result = (char *)malloc(sizeof(char) * (len)-2);
+	result = (char *)malloc(sizeof(char) * (len + 1));
 	if (!result)
 		return (NULL);
 	while (i < ft_strlen(s))
@@ -75,9 +75,9 @@ static char	*ft_assign(int n, int count, int sign)
 
 	i = 0;
 	if (sign == -1)
-		answer = (char *)malloc((sizeof(char) * count));
+		answer = (char *)malloc((sizeof(char) * count) + 2);
 	else
-		answer = (char *)malloc((sizeof(char) * count) - 1);
+		answer = (char *)malloc((sizeof(char) * count) + 1);
 	if (!answer)
 		return (NULL);
 	while (i < count)
