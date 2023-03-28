@@ -6,7 +6,7 @@
 /*   By: druina <druina@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 09:39:06 by druina            #+#    #+#             */
-/*   Updated: 2022/11/09 10:43:53 by druina           ###   ########.fr       */
+/*   Updated: 2023/03/17 10:53:02 by druina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,20 @@ static char	*min(void)
 	char	*min;
 	char	*result;
 	char	*new;
+	char	*temp;
 
 	result = (char *)malloc(sizeof(char) * 12);
 	if (!result)
 		return (NULL);
 	new = result;
+	temp = result;
 	min = "-2147483648";
 	while (*min)
 	{
 		*result++ = *min++;
 	}
 	*result++ = '\0';
+	free(temp);
 	return (new);
 }
 
@@ -61,6 +64,7 @@ static char	*swap(char *s)
 		len--;
 	}
 	result[i] = '\0';
+	free(s);
 	return (result);
 }
 
