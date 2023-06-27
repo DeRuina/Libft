@@ -14,7 +14,7 @@ my library will be compiled into .a file:
 ```bash
 libft.a
 ```
-### Libc functions
+### Libft functions
 <table>
 	<tr>
 		<td><a href ="./src/ft_isalpha.c">ft_isalpha</a></td>
